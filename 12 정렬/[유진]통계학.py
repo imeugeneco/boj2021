@@ -1,18 +1,19 @@
+# 2108 통계학
 import sys
 x = int(sys.stdin.readline())
-nums = list(int(sys.stdin.readline()) for _ in range(x))
+nums = list(map(int, [sys.stdin.readline() for _ in range(x)]))
 
-# average
-print(round(sum(nums)/x))
+print(round(sum(nums)/x)) # average
+print(sorted(nums)[int(x/2)]) # median
 
-# median
-print(sorted(nums)[int(x/2)])
+freq = {}
+for n in nums:
+	if n in freq: freq[n]+=1
+	else: freq[n]=1
+mode_num = max(freq.values())
+modes = sorted(list(filter(lambda x: x[1]==mode_num,freq.items())))
+print(modes[0][0] if len(modes)==1 else modes[1][0]) # mode
 
-# mode
-freq = {i:nums.count(i) for i in sorted(set(nums))}
-mode = [f for f in freq if freq[f]==max(freq.values())]
-if len(mode)==1: print(mode[0])
-else: print(mode[1])
+print(max(nums)-min(nums)) # range
 
-# range
-print(max(nums)-min(nums))
+# 84444KB, 532ms
