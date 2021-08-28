@@ -11,3 +11,4 @@ def main():
 	return cards.pop()
 	
 print(main())
+# 50780KB, 240ms
