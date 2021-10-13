@@ -16,3 +16,5 @@ for _ in range(N):
 	if op[0]=="empty": print(1) if len(d)==0 else print(0)	
 	if op[0]=="front": print(d[0]) if len(d)!=0 else print(-1)
 	if op[0]=="back": print(d[-1]) if len(d)!=0 else print(-1)
+
+#32084KB, 108ms
